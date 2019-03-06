@@ -10,7 +10,8 @@ namespace HTTPClient
     {
         public static async Task<DataModel> loadData(string apiURL, string id)
         {
-            string url = $"{apiURL}/?id={id}";
+
+            string url = $"{apiURL}/{id}";
 
             using (HttpResponseMessage response = await RestClient.APIClient.GetAsync(url))
             {

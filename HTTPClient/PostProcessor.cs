@@ -6,7 +6,7 @@ namespace HTTPClient
 {
     class PostProcessor
     {
-        public static async Task<DataModelParent> postData(string apiURL, DataModel data)
+        public static async Task<DataModelResult> postData(string apiURL, DataModel data)
         {
             string url = apiURL;
 
@@ -15,7 +15,7 @@ namespace HTTPClient
                 if (response.IsSuccessStatusCode)
                 {
                     //return await response.Content.ReadAsStringAsync();
-                    return await response.Content.ReadAsAsync<DataModelParent>();
+                    return await response.Content.ReadAsAsync<DataModelResult>();
                 }
                 else
                 {

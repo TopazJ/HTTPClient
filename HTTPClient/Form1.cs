@@ -15,22 +15,27 @@ namespace HTTPClient
 
         private async void Submit_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 await SendData(URLTextbox.Text, assembleData());
-            //}
-            //catch (Exception except)
-            //{
-              //  debugOutput(except.Message);
-               // debugOutput("As above, there was an error with information entered, try again.");
-            //}
+            }
+            catch (Exception except)
+            {
+               debugOutput(except.Message);
+               debugOutput("As above, there was an error with information entered, try again.");
+            }
         }
 
         private async void GetData_Click(object sender, EventArgs e)
         {
             try
             {
-                await LoadData(textBox5.Text, textBox6.Text);
+                if (textBox6.Text.Equals(""))
+                {
+                    debugOutput("ID field empty, try again.");
+                    return;
+                }
+                    await LoadData(textBox5.Text, textBox6.Text);
             }
             catch (Exception except)
             {
@@ -41,15 +46,14 @@ namespace HTTPClient
 
         private async Task LoadData(string url, string id)
         {
-            var data = await GetProcessor.loadData(id, url);
+            var data = await GetProcessor.loadData(url, id);
             debugOutput(data.toString());
         }
 
         private async Task SendData(string url, DataModel data)
         {
             var message = await PostProcessor.postData(url, data);
-            //debugOutput(message);
-            debugOutput(message.parseString().toString());
+            debugOutput(message.toString());
         }
 
         private DataModel assembleData()
