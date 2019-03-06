@@ -4,21 +4,20 @@ namespace HTTPClient
 {
     public class DataModel
     {
-        public int Id;
+        public string Id;
         public int Data1 { get; set; }
         public double Data2 { get; set; }
         public string Data3 { get; set; }
         public Boolean Data4 { get; set; }
         public int Data5 { get; set; }
 
-        public DataModel(int field1, double field2, string field3, Boolean field4, int field5, int id)
+        public DataModel(int field1, double field2, string field3, Boolean field4, int field5)
         {
             Data1 = field1;
             Data2 = field2;
             Data3 = field3;
             Data4 = field4;
             Data5 = field5;
-            this.Id = id;
         }
 
         public string toString()

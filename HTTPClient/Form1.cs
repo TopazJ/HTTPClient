@@ -15,22 +15,22 @@ namespace HTTPClient
 
         private async void Submit_Click(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 await SendData(URLTextbox.Text, assembleData());
-            }
-            catch (Exception except)
-            {
-                debugOutput(except.Message);
-                debugOutput("As above, there was an error with information entered, try again.");
-            }
+            //}
+            //catch (Exception except)
+            //{
+              //  debugOutput(except.Message);
+               // debugOutput("As above, there was an error with information entered, try again.");
+            //}
         }
 
         private async void GetData_Click(object sender, EventArgs e)
         {
             try
             {
-                await LoadData(textBox5.Text, Convert.ToInt32(textBox6.Text));
+                await LoadData(textBox5.Text, textBox6.Text);
             }
             catch (Exception except)
             {
@@ -39,10 +39,10 @@ namespace HTTPClient
             }
         }
 
-        private async Task LoadData(string url, int id)
+        private async Task LoadData(string url, string id)
         {
             var data = await GetProcessor.loadData(id, url);
-            debugOutput(data.args.toString());
+            debugOutput(data.toString());
         }
 
         private async Task SendData(string url, DataModel data)
@@ -54,10 +54,8 @@ namespace HTTPClient
 
         private DataModel assembleData()
         {
-            int id = 1;
             return new DataModel(Convert.ToInt32(DataEntry1.Text), Convert.ToDouble(DataEntry2.Text),
-                DataEntry3.Text, Convert.ToBoolean(DataEntry4.Text), Convert.ToInt32(DataEntry5.Text), id);
-
+                DataEntry3.Text, Convert.ToBoolean(DataEntry4.Text), Convert.ToInt32(DataEntry5.Text));
         }
 
         private void debugOutput(string strDebugText)

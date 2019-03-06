@@ -8,15 +8,15 @@ namespace HTTPClient
 {
     class GetProcessor
     {
-        public static async Task<DataModelParent> loadData(int id, string apiURL)
+        public static async Task<DataModel> loadData(string apiURL, string id)
         {
-            string url = $"{apiURL}?id={id}";
+            string url = $"{apiURL}/?id={id}";
 
             using (HttpResponseMessage response = await RestClient.APIClient.GetAsync(url))
             {
                 if (response.IsSuccessStatusCode)
                 {
-                    DataModelParent data = await response.Content.ReadAsAsync<DataModelParent>();
+                    DataModel data = await response.Content.ReadAsAsync<DataModel>();
                     return data;
                 }
                 else
