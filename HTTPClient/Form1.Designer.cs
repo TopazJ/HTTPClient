@@ -66,7 +66,7 @@
             this.URLTextbox.Name = "URLTextbox";
             this.URLTextbox.Size = new System.Drawing.Size(412, 22);
             this.URLTextbox.TabIndex = 1;
-            this.URLTextbox.Text = "http://httpbin.org/post";
+            this.URLTextbox.Text = "https://localhost:44382/api/datamodel";
             // 
             // DataEntry1
             // 
@@ -222,7 +222,7 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(412, 22);
             this.textBox5.TabIndex = 15;
-            this.textBox5.Text = "http://httpbin.org/get";
+            this.textBox5.Text = "https://localhost:44382/api/datamodel";
             // 
             // label9
             // 

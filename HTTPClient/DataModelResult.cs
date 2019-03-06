@@ -12,7 +12,7 @@ namespace HTTPClient
 
         public string toString()
         {
-            return $"Id: {Id}\r\nLinkedId: {LinkedId}\r\nData Result 1: {DataResult1}\r\nData Result 2: {DataResult2}";
+            return $"\r\nId: {Id}\r\nLinkedId: {LinkedId}\r\nData Result 1: {DataResult1}\r\nData Result 2: {DataResult2}";
         }
 
     }
